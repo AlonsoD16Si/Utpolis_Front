@@ -4,6 +4,7 @@ Fecha: 14-11-2024
 -->
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,30 +12,134 @@ Fecha: 14-11-2024
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="node_modules/@mdi/font/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+        rel="stylesheet">
+
 <body class="bg-light">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-6">
-                
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-6 d-flex align-items-center justify-content-center">
-                <form class="w-75">
-                    <h2>Iniciar sesión</h2>
-                    <div class="mb-3">
-                      <i class="mdi mdi-account"></i><label for="usuario" class="form-label">Usuario</label>
-                      <input type="text" class="form-control" id="usuario" placeholder="Introduce tu usuario">
+            <div class="col-md-12" style="padding-left: 0px; padding-right: 0px;">
+                <nav class="navbar navbar-expand-lg navbar_utpolis">
+                    <a class="navbar_utpolis_font" href="#">
+                        <image src="imagenes/utpolis_logo.png" style="width: 50px; height: 35px; user-select: none;"></image>
+                        <span style="user-select: none;"><b>UTPolis</b></span>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item active navbar_utpolis_font_li">
+                                <a class="navbar_utpolis_font_links" href="#">Inicio</a>
+                            </li>
+                            <li class="nav-item active navbar_utpolis_font_li">
+                                <a class="navbar_utpolis_font_links" href="#">Cartelera</a>
+                            </li>
+                            <li class="nav-item active navbar_utpolis_font_li">
+                                <a class="navbar_utpolis_font_links" href="#">Dulcer&iacute;a</a>
+                            </li>
+                            <li class="nav-item active navbar_utpolis_font_li">
+                                <a class="navbar_utpolis_font_links" href="#">Promociones</a>
+                            </li>
+                            <li class="nav-item active" style="margin-right: 20px;">
+                                <a style="text-decoration: none;" href="#">
+                                    <div class="card navbar_utpolis_inicio_sesion">
+                                        <span style="color: white; user-select: none;"><span class="mdi mdi-account"></span>  Iniciar sesi&oacute;n</span>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="mb-3">
-                      <i class="mdi mdi-key"></i><label for="contrasenia" class="form-label">Contraseña</label>
-                      <input type="password" class="form-control" id="contrasenia" placeholder="Introduce tu contraseña">
-                    </div>
-                    <button type="submit" class="btn w-100 mt-2" style="background-color: #e4a643; color: white;">Iniciar sesión</button>
-                </form>
+                </nav>
             </div>
-            <div class="col-lg-6">
-                <img src="imagenes/inicio_sesion.png" alt="Imagen de inicio de sesión" class="w-100 h-100 object-fit-cover">
+            <div class="col-md-12 general_utpolis general_utpolis_carrusel">
+                <!-- Carrusel de peliculas en estreno -->
+                <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+
+                        <!--Slide 1-->
+                        <div class="carousel-item active">
+                            <div class="d-flex justify-content-center">
+                                <div class="card shadow-sm general_utpolis_carrusel_slide">
+                                    <div class="card-body" style="padding-top: 0px; padding-left: 0px;">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <image src="imagenes/ejemplo1.jpg" class="imagen_carrusel_slide">
+                                                </image>
+                                            </div>
+                                            <div class="col-md-8" style="padding-top: 10px;">
+                                                <h2 class="card-title" style="user-select: none;">Avengers: Doomsday (2026)</h2>
+                                                <span class="card-text" style="font-size: 20px; user-select: none;">Cuando el mundo se
+                                                    enfrenta a una nueva amenaza,
+                                                    más oscura y peligrosa que cualquier otra antes, los Vengadores se
+                                                    ven obligados a unir fuerzas para enfrentar al temible Doctor Doom,
+                                                    el genio malvado y dictador de Latveria. Después de haber obtenido
+                                                    un artefacto cósmico que le otorga un poder inimaginable, Doom lanza
+                                                    un ataque devastador contra las principales ciudades del mundo,
+                                                    desatando caos y guerra. Su objetivo: desmantelar el orden mundial y
+                                                    reemplazarlo con su propia visión de control absoluto.</span>
+                                                <div class="row" style="margin-top: 20px;">
+                                                    <div class="col-md-12" style="text-align: center;">
+                                                        <button class="boton_slide shadow-sm"><span class="mdi mdi-movie-open"></span>  Ver
+                                                            trailer</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Slide 2-->
+                        <div class="carousel-item">
+                            <div class="d-flex justify-content-center">
+                                <div class="card shadow-sm general_utpolis_carrusel_slide">
+                                    <div class="card-body" style="padding-top: 0px; padding-left: 0px;">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <image src="imagenes/ejemplo2.jpg" class="imagen_carrusel_slide">
+                                                </image>
+                                            </div>
+                                            <div class="col-md-8" style="padding-top: 10px;">
+                                                <h2 class="card-title" style="user-select: none;">Gladiador II (2024)</h2>
+                                                <span class="card-text" style="font-size: 20px; user-select: none;">Gladiator 2 es una
+                                                    planeada cinta de aventura y acción, secuela de la gran ganadora del
+                                                    premio de la Academia y que volverá a ser dirigida por Ridley
+                                                    Scott(El último duelo), cuya guion no ha sido aprobado y poco se
+                                                    sabe de la trama o los personajes que están involucrados, sin
+                                                    embargo, se ha especulado que la historia seguirá la aventura de
+                                                    Lucio, hijo de Lucila y sobrina del terrible emperador Cómodo, por
+                                                    tal, es el siguiente en la sucesión del trono, por lo que se enfoca
+                                                    en los años de Lucio como el nuevo emperador y los cambios que debe
+                                                    traer, esté o no de acuerdo con ellos.</span>
+                                                <div class="row" style="margin-top: 20px;">
+                                                    <div class="col-md-12" style="text-align: center;">
+                                                        <button class="boton_slide shadow-sm"><span class="mdi mdi-movie-open"></span>  Ver
+                                                            trailer</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Controles del Carrusel -->
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
             </div>
         </div>
     </div>
@@ -43,7 +148,8 @@ Fecha: 14-11-2024
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
 
     <script>
-        
+
     </script>
 </body>
+
 </html>
