@@ -4,6 +4,25 @@
     font-family: "Rubik", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
+    transition: top 0.3s;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.navbar_utpolis.scrolled {
+    background-color: #ffffff;
+    font-size: 15px;
+    font-family: "Rubik", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    transition: top 0.3s;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0px 10px 0px rgba(0, 0, 0, 0.234);
 }
 
 .navbar_utpolis_font {
@@ -28,6 +47,14 @@
     color: #0862fd;
 }
 
+.navbar_utpolis_font_links.scrolled  {
+    color: black;
+}
+
+.navbar_utpolis_font_links.scrolled:hover {
+    color: #0862fd;
+}
+
 .navbar_utpolis_inicio_sesion {
     background-color: #0862fd;
     padding: 10px;
@@ -47,6 +74,14 @@
     font-style: normal;
     color: white;
     height: 550px;
+}
+
+.general_utpolis_2 {
+    background-color: white;
+    font-family: "Rubik", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    color: white;
 }
 
 .general_utpolis_carrusel {
@@ -81,5 +116,22 @@
 
 .boton_slide:hover {
     background-color: rgb(148, 148, 148);
+    transform: scale(1.05);
+}
+
+.boton_promo {
+    width: 25%; 
+    background-color: #0862fd;
+    color: white;
+    border-radius: 10px;
+    border: 0cap;
+    color: black;
+    padding: 10px 20px; 
+    text-align: center; 
+    transition: background-color 0.3s ease, transform 0.3s ease; 
+}
+
+.boton_promo:hover {
+    background-color: #0046c0;
     transform: scale(1.05);
 }

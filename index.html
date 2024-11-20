@@ -20,17 +20,18 @@ Fecha: 14-11-2024
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12" style="padding-left: 0px; padding-right: 0px;">
-                <nav class="navbar navbar-expand-lg navbar_utpolis">
+                <nav class="navbar navbar-expand-lg navbar_utpolis" id="nav_principal">
                     <a class="navbar_utpolis_font" href="#">
-                        <image src="imagenes/utpolis_logo.png" style="width: 50px; height: 35px; user-select: none;"></image>
-                        <span style="user-select: none;"><b>UTPolis</b></span>
+                        <image src="imagenes/utpolis_logo.png" style="width: 50px; height: 35px; user-select: none;">
+                        </image>
+                        <span style="user-select: none;" id="nav_titulo"><b>UTPolis</b></span>
                     </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                        <ul class="navbar-nav">
+                        <ul class="navbar-nav" id="nav_links">
                             <li class="nav-item active navbar_utpolis_font_li">
                                 <a class="navbar_utpolis_font_links" href="#">Inicio</a>
                             </li>
@@ -46,7 +47,8 @@ Fecha: 14-11-2024
                             <li class="nav-item active" style="margin-right: 20px;">
                                 <a style="text-decoration: none;" href="#">
                                     <div class="card navbar_utpolis_inicio_sesion">
-                                        <span style="color: white; user-select: none;"><span class="mdi mdi-account"></span>  Iniciar sesi&oacute;n</span>
+                                        <span style="color: white; user-select: none;" id="nav_is"><span
+                                                class="mdi mdi-account"></span> Iniciar sesi&oacute;n</span>
                                     </div>
                                 </a>
                             </li>
@@ -54,9 +56,9 @@ Fecha: 14-11-2024
                     </div>
                 </nav>
             </div>
-            <div class="col-md-12 general_utpolis general_utpolis_carrusel">
+            <div class="col-md-12 general_utpolis general_utpolis_carrusel shadow-md" style="margin-top: 60px;">
                 <!-- Carrusel de peliculas en estreno -->
-                <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+                <div id="carousel_proximos" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
 
                         <!--Slide 1-->
@@ -70,8 +72,10 @@ Fecha: 14-11-2024
                                                 </image>
                                             </div>
                                             <div class="col-md-8" style="padding-top: 10px;">
-                                                <h2 class="card-title" style="user-select: none;">Avengers: Doomsday (2026)</h2>
-                                                <span class="card-text" style="font-size: 20px; user-select: none;">Cuando el mundo se
+                                                <h2 class="card-title" style="user-select: none;">Avengers: Doomsday
+                                                    (2026)</h2>
+                                                <span class="card-text"
+                                                    style="font-size: 20px; user-select: none;">Cuando el mundo se
                                                     enfrenta a una nueva amenaza,
                                                     más oscura y peligrosa que cualquier otra antes, los Vengadores se
                                                     ven obligados a unir fuerzas para enfrentar al temible Doctor Doom,
@@ -82,7 +86,8 @@ Fecha: 14-11-2024
                                                     reemplazarlo con su propia visión de control absoluto.</span>
                                                 <div class="row" style="margin-top: 20px;">
                                                     <div class="col-md-12" style="text-align: center;">
-                                                        <button class="boton_slide shadow-sm"><span class="mdi mdi-movie-open"></span>  Ver
+                                                        <button class="boton_slide shadow-sm"><span
+                                                                class="mdi mdi-movie-open"></span> Ver
                                                             trailer</button>
                                                     </div>
                                                 </div>
@@ -104,8 +109,10 @@ Fecha: 14-11-2024
                                                 </image>
                                             </div>
                                             <div class="col-md-8" style="padding-top: 10px;">
-                                                <h2 class="card-title" style="user-select: none;">Gladiador II (2024)</h2>
-                                                <span class="card-text" style="font-size: 20px; user-select: none;">Gladiator 2 es una
+                                                <h2 class="card-title" style="user-select: none;">Gladiador II (2024)
+                                                </h2>
+                                                <span class="card-text"
+                                                    style="font-size: 20px; user-select: none;">Gladiator 2 es una
                                                     planeada cinta de aventura y acción, secuela de la gran ganadora del
                                                     premio de la Academia y que volverá a ser dirigida por Ridley
                                                     Scott(El último duelo), cuya guion no ha sido aprobado y poco se
@@ -117,7 +124,8 @@ Fecha: 14-11-2024
                                                     traer, esté o no de acuerdo con ellos.</span>
                                                 <div class="row" style="margin-top: 20px;">
                                                     <div class="col-md-12" style="text-align: center;">
-                                                        <button class="boton_slide shadow-sm"><span class="mdi mdi-movie-open"></span>  Ver
+                                                        <button class="boton_slide shadow-sm"><span
+                                                                class="mdi mdi-movie-open"></span> Ver
                                                             trailer</button>
                                                     </div>
                                                 </div>
@@ -129,26 +137,136 @@ Fecha: 14-11-2024
                         </div>
                     </div>
                     <!-- Controles del Carrusel -->
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carousel_proximos"
                         data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Previous</span>
                     </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
+                    <button class="carousel-control-next" type="button" data-bs-target="#carousel_proximos"
                         data-bs-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Next</span>
                     </button>
                 </div>
             </div>
+
+            <div class="col-md-12 general_utpolis_2">
+                <div style="margin-top: 40px;margin-bottom: 40px;margin-left: 150px;margin-right: 150px; color: black;">
+                    <h2>PROMOCIONES</h2>
+                </div>
+                <!--PROMO 1-->
+                <div class="card shadow-sm"
+                    style="margin-top: 40px;margin-bottom: 40px;margin-left: 150px;margin-right: 150px; color: black;">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <image src="imagenes/deadpool_wolverine_promo1.png" class="imagen_carrusel_slide"
+                                    style="padding-bottom: 0px;">
+                                </image>
+                            </div>
+                            <div class="col-md-8">
+                                <h2 class="card-title" style="user-select: none;">PROMOCIÓN: DEADPOOL & WOLVERINE
+                                </h2>
+                                <span class="card-text" style="font-size: 25px; user-select: none;">
+                                    Incluye 1 Vaso de colección a elección, Palomitas Grandes y 2 entradas para ver
+                                    <b>Deadpool & Wolverine</b>
+                                </span>
+                                <div class="row" style="margin-top: 20px;">
+                                    <div class="col-md-12" style="text-align: end;">
+                                        <button class="boton_promo shadow-sm" style="color: white;">Ver Promociones
+                                            ></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--PROMO 2-->
+                <div class="card shadow-sm"
+                    style="margin-top: 40px;margin-bottom: 40px;margin-left: 150px;margin-right: 150px; color: black;">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <image src="imagenes/minecraftmovie.jpg" class="imagen_carrusel_slide"
+                                    style="padding-bottom: 0px;">
+                                </image>
+                            </div>
+                            <div class="col-md-8">
+                                <h2 class="card-title" style="user-select: none;">PROMOCIÓN: MINECRAFT
+                                </h2>
+                                <span class="card-text" style="font-size: 25px; user-select: none;">
+                                    Incluye 3 entradas para la pelicula y 4 refrescos grandes de tu elección en el
+                                    proximo estreno:
+                                    <b>Minecraft (2025)</b>
+                                </span>
+                                <div class="row" style="margin-top: 20px;">
+                                    <div class="col-md-12" style="text-align: end;">
+                                        <button class="boton_promo shadow-sm" style="color: white;">Ver Promociones
+                                            ></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+    <div class="container-fluid text-white py-4" style="background-color: #052d74; height: 200px;">
+        <div class="row">
+            <!-- Sección de Redes Sociales -->
+            <div class="col-md-6 d-flex justify-content-start align-items-start">
+                <a href="#" class="text-white mx-3" style="font-size: 1.5rem; text-decoration: none;">
+                    <span class="mdi mdi-facebook"></span> Facebook
+                </a>
+                <a href="#" class="text-white mx-3" style="font-size: 1.5rem; text-decoration: none;">
+                    <span class="mdi mdi-twitter"></span> Twitter
+                </a>
+            </div>
+            <!-- Sección de Links Legales y Copyright -->
+            <div class="col-md-6 d-flex justify-content-end align-items-end flex-column flex-md-row">
+                <div class="row">
+                    <div class="col-md-12" style="text-align: end;">
+                        <a href="#" class="text-white mx-2">Aviso de privacidad</a>
+                        <a href="#" class="text-white mx-2">Condiciones de uso</a>
+                    </div>
+                    <div class="col-md-12">
+                        <div style="margin-top: 100px; margin-right: 10px; text-align: end;">
+                            <span class="mt-3 mt-md-0">© 2024 UTPolis</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
 
     <script>
+        window.addEventListener("scroll", function () {
+            const navbar = document.getElementById("nav_principal");
+            const navbar_font = document.getElementById("nav_titulo");
+            const navbar_links = document.querySelectorAll("#nav_links a");
 
+            if (window.scrollY > 400) {
+                //▶ Cuando el Navbar esta 250 pixeles debajo en la pagina
+                navbar.classList.add("scrolled");
+                navbar_font.style.color = "#000000";
+
+                navbar_links.forEach(link => {
+                    link.classList.add("scrolled");
+                });
+            } else {
+                //▶ Cuando el Navbar esta 250 pixeles arriba en la pagina
+                navbar.classList.remove("scrolled");
+                navbar_font.style.color = "#ffffff";
+                navbar_links.forEach(link => {
+                    link.classList.remove("scrolled");
+                });
+            }
+        });
     </script>
 </body>
 
