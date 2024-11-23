@@ -45,7 +45,7 @@ Fecha: 14-11-2024
                                 <a class="navbar_utpolis_font_links" href="#">Promociones</a>
                             </li>
                             <li class="nav-item active" style="margin-right: 20px;">
-                                <a style="text-decoration: none;" href="#">
+                                <a style="text-decoration: none; cursor:pointer;" onclick="ventanaLogin()">
                                     <div class="card navbar_utpolis_inicio_sesion">
                                         <span style="color: white; user-select: none;" id="nav_is"><span
                                                 class="mdi mdi-account"></span> Iniciar sesi&oacute;n</span>
@@ -98,18 +98,7 @@ Fecha: 14-11-2024
             });
 
         function ventanaLogin() {
-            //▶ Obtener el elemento donde se mostrará el formulario
-            var pantalla = document.getElementById("default");
-
-            //▶ Cargar el contenido de login.html de forma asíncrona
-            fetch('modulos/usuario_inicio_sesion.html')
-                .then(response => response.text())
-                .then(data => {
-                    //▶ Insertar el contenido en el div
-                    pantalla.innerHTML = data;
-                    //▶ Mostrar el formulario
-                    pantalla.style.display = "block";
-                });
+            window.location.href = 'modulos/usuario_inicio_sesion.html';
         }
     </script>
 </body>

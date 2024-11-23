@@ -1,0 +1,15 @@
+.input_utpolis {
+    font-size: 15px;
+    margin-top: 25px;
+}
+
+.imagen_inicio_utpolis {
+    width: 100%;
+    height: 100%;
+}
+
+.imagen_utpolis {
+    border-radius: inherit;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
