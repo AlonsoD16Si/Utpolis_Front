@@ -1,68 +1,49 @@
-<!--
- Autor: Carlos René Andrade De pro
- Fecha: 21-11-2024
- Descripción: Vista de inicio de sesión para Empleados o Clientes.
- -->
-
-<!DOCTYPE html>
-<html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iniciar sesión</title>
-    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../node_modules/@mdi/font/css/materialdesignicons.min.css">
-    <link rel="stylesheet" href="usuario_inicio_sesion.css">
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
-        rel="stylesheet">
-
-<body class="bg-light">
-    <div class="container-fluid">
-        <div class="row" style="margin-top: 12%;">
-            <div class="col-md-12">
-                <div class="d-flex justify-content-center">
-                    <div class="card shadow-sm" style="width: 55%; height: 400px;">
-                        <div class="card-body" style="padding:0px; height: 100%;">
-                            <div class="row" style="height: 100%;align-content: center;">
-                                <div class="col-md-7" style="height: 100%;align-content: center;">
-                                    <div class="d-flex justify-content-center">
-                                        <form style="width: 65%;">
-                                            <div style="text-align: center;">
-                                                <div class="row">
-                                                    <div class="col-md-4" style="padding-left: 0px; padding-right: 0px;">
-                                                        <img src="../imagenes/utpolis_logo.png"
-                                                            style="width: 100%; height: 100%;">
-                                                    </div>
-                                                    <div class="col-md-8" style="padding-left: 0px; padding-right: 0px; align-content: end;">
-                                                        <h3 style="margin-bottom: 0px">Bienvenido a UTPolis</h3>
-                                                    </div>
+<div class="container-fluid">
+    <div class="row" style="margin-top: 12%;">
+        <div class="col-md-12">
+            <div class="d-flex justify-content-center">
+                <div class="card shadow-sm" style="width: 55%; height: 400px;">
+                    <div class="card-body" style="padding:0px; height: 100%;">
+                        <div class="row" style="height: 100%;align-content: center;">
+                            <div class="col-md-7" style="height: 100%;align-content: center;">
+                                <div class="d-flex justify-content-center">
+                                    <form style="width: 65%;">
+                                        <div style="text-align: center;">
+                                            <div class="row">
+                                                <div class="col-md-4" style="padding-left: 0px; padding-right: 0px;">
+                                                    <img src="../imagenes/utpolis_logo.png"
+                                                        style="width: 100%; height: 100%;">
+                                                </div>
+                                                <div class="col-md-8" style="padding-left: 0px; padding-right: 0px; align-content: end;">
+                                                    <h3 style="margin-bottom: 0px">Bienvenido a UTPolis</h3>
                                                 </div>
                                             </div>
-                                            <div class="form-group">
-                                                <label for="usuario" class="input_utpolis"><span
-                                                        class="mdi mdi-account"></span>
-                                                    Usuario</label>
-                                                <input class="form-control" type="text" id="usuario">
-                                                <label for="contrasenia" class="input_utpolis"><span
-                                                        class="mdi mdi-key"></span>
-                                                    Contraseña</label>
-                                                <input class="form-control" type="password" id="contrasenia">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="usuario" class="input_utpolis"><span
+                                                    class="mdi mdi-account"></span>
+                                                Usuario</label>
+                                            <input class="form-control" type="text" id="usuario">
+                                            <label for="contrasenia" class="input_utpolis"><span
+                                                    class="mdi mdi-key"></span>
+                                                Contraseña</label>
+                                            <input class="form-control" type="password" id="contrasenia">
+                                        </div>
+                                        <div style="margin-top: 30px;">
+                                            <button type="submit" class="btn btn-primary"
+                                                style="width: 100%;"><span class="mdi mdi-login"></span> Iniciar sesión</button>
+                                            <div style="margin-top: 10px; text-align: start ;">
+                                                <a href="#" onclick="ventanaRegistro()">¿No tienes cuenta? Registrate ahora</a>
                                             </div>
-                                            <div style="margin-top: 30px;">
-                                                <button type="submit" class="btn btn-primary"
-                                                    style="width: 100%;"><span class="mdi mdi-login"></span> Iniciar sesión</button>
-                                                <div style="margin-top: 10px; text-align: start ;">
-                                                    <a href="usuario_registro.html">¿No tienes cuenta? Registrate ahora</a>
-                                                </div>
+                                            <div style="margin-top: 10px; text-align: start ;">
+                                                <a href="../index.html">Inicio</a>
                                             </div>
-                                        </form>
-                                    </div>
+                                        </div>
+                                    </form>
                                 </div>
-                                <div class="col-md-5 imagen_utpolis">
-                                    <img src="../imagenes/logo_login.png" class="imagen_inicio_utpolis" />
-                                </div>
+                            </div>
+                            <div class="col-md-5 imagen_utpolis">
+                                <img src="../imagenes/logo_login.png" class="imagen_inicio_utpolis" />
                             </div>
                         </div>
                     </div>
@@ -70,11 +51,4 @@
             </div>
         </div>
     </div>
-
-    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
-
-    <script>
-
-    </script>
-</body>
+</div>

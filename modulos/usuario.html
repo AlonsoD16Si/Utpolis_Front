@@ -1,0 +1,53 @@
+<!--
+ Autor: Carlos René Andrade De pro
+ Fecha: 21-11-2024
+ Descripción: Vista de inicio de sesión para Empleados o Clientes.
+ -->
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar sesión</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../node_modules/@mdi/font/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="usuario_inicio_sesion.css">
+    <link rel="stylesheet" href="usuario_registro.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+        rel="stylesheet">
+
+<body class="bg-light">
+
+    <div id="default" class="contenido"></div>
+
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+
+    <script>
+        //▶ Carga la ventana de inicio de sesion 
+        fetch('usuario_inicio_sesion.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("default").innerHTML = data;
+            });
+
+        function ventanaRegistro() {
+            fetch('usuario_registro.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("default").innerHTML = data;
+                });
+        }
+
+        function ventanaInicioSesion() {
+            fetch('usuario_inicio_sesion.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("default").innerHTML = data;
+                });
+        }
+    </script>
+</body>

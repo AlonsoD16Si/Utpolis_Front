@@ -13,3 +13,7 @@
     border-top-left-radius: 0px;
     border-bottom-left-radius: 0px;
 }
+.contenido {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
