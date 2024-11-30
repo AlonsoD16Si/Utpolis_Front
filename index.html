@@ -13,6 +13,7 @@ Fecha: 14-11-2024
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="node_modules/@mdi/font/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="modulos/Boletos/boletos.css">
     <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
         rel="stylesheet">
 
@@ -44,13 +45,26 @@ Fecha: 14-11-2024
                             <li class="nav-item active navbar_utpolis_font_li">
                                 <a class="navbar_utpolis_font_links" href="#">Promociones</a>
                             </li>
-                            <li class="nav-item active" style="margin-right: 20px;">
+                            <li class="nav-item active navbar_utpolis_font_li">
+                                <a class="navbar_utpolis_font_links" onclick="ventanaBoleto()">Boletos</a>
+                            </li>
+                            <li class="nav-item active" style="margin-right: 20px;" id="boton_in">
                                 <a style="text-decoration: none; cursor:pointer;" onclick="ventanaLogin()">
                                     <div class="card navbar_utpolis_inicio_sesion">
-                                        <span style="color: white; user-select: none;" id="nav_is"><span
+                                        <span style="color: white; user-select: none;"><span
                                                 class="mdi mdi-account"></span> Iniciar sesi&oacute;n</span>
                                     </div>
                                 </a>
+                            </li>
+                            <li class="nav-item active navbar_utpolis_font_li" style="margin-right: 20px;"
+                                id="boton_us">
+                                <a class="navbar_utpolis_font_links" href="#" style="padding-right: 0px;"><span
+                                        id="nombre_usuario">Default</span>
+                                    <span class="mdi mdi-account-circle-outline"></span>
+                                </a>
+                                <ul class="dropdown-menu" style="display: none;">
+                                    <li><a href="#" onclick="cerrarSesion()">Cerrar sesión</a></li>
+                                </ul>
                             </li>
                         </ul>
                     </div>
@@ -58,13 +72,14 @@ Fecha: 14-11-2024
             </div>
         </div>
     </div>
-    <div id="default">
+    <div id="default" style="margin-top: 40px;">
     </div>
 
 
 
     <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="modulos/Boletos/boletos.js"></script>
 
     <script>
         window.addEventListener("scroll", function () {
@@ -85,6 +100,7 @@ Fecha: 14-11-2024
                 navbar.classList.remove("scrolled");
                 navbar_font.style.color = "#ffffff";
                 navbar_links.forEach(link => {
+                    console.log("link: ", link);
                     link.classList.remove("scrolled");
                 });
             }
@@ -97,9 +113,48 @@ Fecha: 14-11-2024
                 document.getElementById("default").innerHTML = data;
             });
 
+        //▶ Carga la ventana de boletos
+        function ventanaBoleto() {
+            fetch('modulos/Boletos/boletos.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("default").innerHTML = data;
+                });
+        }
+
         function ventanaLogin() {
             window.location.href = 'modulos/usuario.html';
         }
+
+        //▶ Carga al usuario de inicio
+        document.addEventListener("DOMContentLoaded", () => {
+            const boton_inicio_sesion = document.getElementById('boton_in');
+            const usuario_sesion = document.getElementById('boton_us');
+            const usuario = JSON.parse(localStorage.getItem("usuario"));
+            if (usuario) {
+                boton_inicio_sesion.style.display = 'none';
+                usuario_sesion.style.display = 'block';
+                const nombre_usuario = document.getElementById("nombre_usuario");
+                nombre_usuario.innerText = usuario.username;
+            } else {
+                boton_inicio_sesion.style.display = 'block';
+                usuario_sesion.style.display = 'none';
+            }
+        });
+
+        const botonUsuario = document.getElementById('boton_us');
+        const menuDesplegable = botonUsuario.querySelector('.dropdown-menu');
+
+        function toggleMenu() {
+            menuDesplegable.style.display = menuDesplegable.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function cerrarSesion() {
+            localStorage.removeItem('usuario');
+            window.location.href = 'index.html';
+        }
+
+        botonUsuario.addEventListener('click', toggleMenu);
     </script>
 </body>
 

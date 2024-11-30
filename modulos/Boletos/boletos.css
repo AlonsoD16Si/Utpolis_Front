@@ -1,0 +1,14 @@
+.utpolis-body {
+    margin-top: 75px;
+}
+
+.imagen-boleto {
+    width: 200px;
+    height: 300px; 
+}
+
+.descripcion-pelicula {
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    white-space: normal;
+}
