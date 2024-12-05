@@ -6,6 +6,7 @@
                     Compra de boletos
                 </h4>
             </div>
+            <!-- COMPRA DE BOLETOS -->
             <div class="card" style="margin-top: 10px;">
                 <div class="card-body">
                     <div class="row">
@@ -22,137 +23,84 @@
                     </div>
                 </div>
             </div>
+            <!-- SELECCION DE PELICULAS -->
             <div class="card" style="margin-top: 10px;">
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-12">
+                            <h4>Selecciona la pelicula</h4>
+                        </div>
+                        <div class="col-md-12">
                             <div class="carousel slide" id="carusel_disponibles">
-                                <div class="carousel-inner">
-                                    <!--Slide 1-->
-                                    <div class="carousel-item active">
-                                        <div class="d-flex justify-content-center">
-                                            <div class="card shadow-sm">
-                                                <div class="card-body" style="padding-top: 0px; padding-left: 0px;">
-                                                    <div class="row">
-                                                        <div class="col-md-4">
-                                                            <image src="../../imagenes/ejemplo3.jpg"
-                                                                class="imagen-boleto">
-                                                            </image>
-                                                        </div>
-                                                        <div class="col-md-8" style="padding-top: 10px;">
-                                                            <h4 class="card-title" style="user-select: none;">Jojo's
-                                                                Bizarre Adventure Steal Ball Run</h4>
-                                                            <span class="card-text" style="user-select: none;">
-                                                                En el año 1890, Estados Unidos se convierte en el
-                                                                escenario de la carrera más épica y peligrosa jamás
-                                                                concebida: Steel Ball Run, una competición que atraviesa
-                                                                el continente desde San Diego hasta Nueva York. Miles de
-                                                                competidores, atraídos por el premio de 50 millones de
-                                                                dólares, arriesgan todo para cruzar desiertos
-                                                                abrasadores, montañas traicioneras y llanuras
-                                                                inhóspitas.
-
-                                                                Entre los participantes destacan Johnny Joestar, un
-                                                                exjinete de caballos caído en desgracia que busca
-                                                                redención y el uso de sus piernas tras quedar
-                                                                paralítico, y Gyro Zeppeli, un misterioso jinete
-                                                                italiano armado con esferas giratorias imbuidas de un
-                                                                poder que desafía las leyes de la física.
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!--Slide 2-->
-                                    <div class="carousel-item">
-                                        <div class="d-flex justify-content-center">
-                                            <div class="card shadow-sm">
-                                                <div class="card-body" style="padding-top: 0px; padding-left: 0px;">
-                                                    <div class="row">
-                                                        <div class="col-md-4">
-                                                            <image src="../../imagenes/ejemplo4.jpg"
-                                                                class="imagen-boleto">
-                                                            </image>
-                                                        </div>
-                                                        <div class="col-md-8" style="padding-top: 10px;">
-                                                            <h4 class="card-title" style="user-select: none;">Cyberpunk
-                                                            </h4>
-                                                            <span class="card-text" style="user-select: none;">
-                                                                En un futuro distópico donde la línea entre humano y
-                                                                máquina se ha difuminado, V, un mercenario cibernético,
-                                                                se ve envuelto en una conspiración de alto riesgo. Tras
-                                                                un fallido atraco, un biochip experimental implantado en
-                                                                su cerebro contiene la conciencia del legendario rockero
-                                                                Johnny Silverhand, quien lucha por el control de su
-                                                                mente. Cuando la Presidenta de los Nuevos Estados Unidos
-                                                                es secuestrada, V debe adentrarse en el peligroso
-                                                                distrito de Dogtown para rescatarla y desenmascarar una
-                                                                conspiración que amenaza a toda Night City.
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!--Slide 3-->
-                                    <div class="carousel-item">
-                                        <div class="d-flex justify-content-center">
-                                            <div class="card shadow-sm">
-                                                <div class="card-body" style="padding-top: 0px; padding-left: 0px;">
-                                                    <div class="row">
-                                                        <div class="col-md-4">
-                                                            <image src="../../imagenes/ejemplo5.jpg"
-                                                                class="imagen-boleto">
-                                                            </image>
-                                                        </div>
-                                                        <div class="col-md-8" style="padding-top: 10px;">
-                                                            <h4 class="card-title" style="user-select: none;">Red Dead
-                                                                Redemption
-                                                            </h4>
-                                                            <span class="card-text" style="user-select: none;">
-                                                                En el crepúsculo del salvaje oeste, 1899, la banda de
-                                                                forajidos de Van der Linde, liderada por el carismático
-                                                                Dutch, se ve acorralada por las fuerzas de la ley. Tras
-                                                                un fallido atraco en Blackwater, Arthur Morgan, un leal
-                                                                miembro de la banda, se encuentra atrapado entre su
-                                                                lealtad a Dutch y su creciente conciencia moral.
-                                                                Mientras la pandilla lucha por sobrevivir en un mundo
-                                                                que se moderniza rápidamente, Arthur debe decidir su
-                                                                propio destino y enfrentar las consecuencias de sus
-                                                                acciones.
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div class="carousel-inner" id="slides_carusel">
+                                    <!--Aqui cargaran las peliculas de manera dinamica-->
+                                </div>
+                                <div>
+                                    <button class="carousel-control-prev" type="button"
+                                        data-bs-target="#carusel_disponibles" data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Previous</span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button"
+                                        data-bs-target="#carusel_disponibles" data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Next</span>
+                                    </button>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+            <!-- SELECCION DE SALA -->
+            <div class="card" style="margin-top: 10px;">
+                <div class="card-body">
+                    <div class="row">
                         <div class="col-md-12">
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carusel_disponibles"
-                                data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carusel_disponibles"
-                                data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
+                            <h4>Selecciona la sala disponible</h4>
+                        </div>
+                        <div class="col-md-12" id="salas">
+                            <!--Aqui carga dinamicamente los botones para seleccionar la sala-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SELECCION DE HORARIO -->
+            <div class="card" style="margin-top: 10px;">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4>Selecciona los horarios disponibles</h4>
+                        </div>
+                        <div class="col-md-12" id="horarios">
+                            <!--Aqui carga dinamicamente los botones para seleccionar el horario-->
+                            <span style="color: rgb(119, 119, 119);">Seleccione una sala</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="col-md-6">
-
+            <!--SELECCION DE ASIENTOS-->
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-center"></div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div style="background-color: black; width: 100%; user-select: none; color: white; text-align: center;">
+                                Pantalla
+                            </div>
+                        </div>
+                        <div class="col-md-12" style="margin-top: 20px;">
+                            <div style="background-color: black; color: white; width: 5%; user-select: none; text-align: center;">
+                                <span>A1</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+</div>
 </div>

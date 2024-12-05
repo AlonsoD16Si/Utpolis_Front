@@ -12,3 +12,8 @@
     text-overflow: ellipsis; 
     white-space: normal;
 }
+
+.boton_seleccionado {
+    background-color: #031e4d; 
+    color: white;
+}

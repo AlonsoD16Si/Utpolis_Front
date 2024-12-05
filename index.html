@@ -100,7 +100,6 @@ Fecha: 14-11-2024
                 navbar.classList.remove("scrolled");
                 navbar_font.style.color = "#ffffff";
                 navbar_links.forEach(link => {
-                    console.log("link: ", link);
                     link.classList.remove("scrolled");
                 });
             }
@@ -119,6 +118,9 @@ Fecha: 14-11-2024
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById("default").innerHTML = data;
+                    cargarPeliculas();
+                    cargarSalas();
+                    cambiarPeliculaSeleccionada();
                 });
         }
 
