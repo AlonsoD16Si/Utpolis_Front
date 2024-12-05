@@ -34,7 +34,7 @@ Fecha: 14-11-2024
                     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                         <ul class="navbar-nav" id="nav_links">
                             <li class="nav-item active navbar_utpolis_font_li">
-                                <a class="navbar_utpolis_font_links" href="#">Inicio</a>
+                                <a class="navbar_utpolis_font_links" onclick="ventanaInicio()" style="cursor: pointer;">Inicio</a>
                             </li>
                             <li class="nav-item active navbar_utpolis_font_li">
                                 <a class="navbar_utpolis_font_links" href="#">Cartelera</a>
@@ -46,10 +46,10 @@ Fecha: 14-11-2024
                                 <a class="navbar_utpolis_font_links" href="#">Promociones</a>
                             </li>
                             <li class="nav-item active navbar_utpolis_font_li">
-                                <a class="navbar_utpolis_font_links" onclick="ventanaBoleto()">Boletos</a>
+                                <a class="navbar_utpolis_font_links" onclick="ventanaBoleto()" style="cursor: pointer;">Boletos</a>
                             </li>
                             <li class="nav-item active" style="margin-right: 20px;" id="boton_in">
-                                <a style="text-decoration: none; cursor:pointer;" onclick="ventanaLogin()">
+                                <a style="text-decoration: none; cursor:pointer;" onclick="ventanaLogin()" style="cursor: pointer;">
                                     <div class="card navbar_utpolis_inicio_sesion">
                                         <span style="color: white; user-select: none;"><span
                                                 class="mdi mdi-account"></span> Iniciar sesi&oacute;n</span>
@@ -112,15 +112,21 @@ Fecha: 14-11-2024
                 document.getElementById("default").innerHTML = data;
             });
 
+        function ventanaInicio() {
+            fetch('modulos/pantalla_principal.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("default").innerHTML = data;
+                });
+        }
+
         //▶ Carga la ventana de boletos
         function ventanaBoleto() {
             fetch('modulos/Boletos/boletos.html')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById("default").innerHTML = data;
-                    cargarPeliculas();
-                    cargarSalas();
-                    cambiarPeliculaSeleccionada();
+                    cargarBoletosInicio();
                 });
         }
 

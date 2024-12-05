@@ -17,6 +17,9 @@
                                         Seleccione la cantidad de boletos a comprar
                                     </label>
                                     <input class="form-control" type="number" id="cantidad_boletos">
+
+                                    <label id="error_cantidad_boletos" style="color: red;">
+                                    </label>
                                 </div>
                             </form>
                         </div>
@@ -82,24 +85,34 @@
             </div>
         </div>
         <div class="col-md-6">
-            <!--SELECCION DE ASIENTOS-->
             <div class="card">
+                <div class="card text-center">
+                    <h4 class="card-title">
+                        Asientos
+                    </h4>
+                </div>
+            </div>
+            <!--SELECCION DE ASIENTOS-->
+            <div class="card" style="margin-top: 10px;">
                 <div class="card-body">
-                    <div class="d-flex justify-content-center"></div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div style="background-color: black; width: 100%; user-select: none; color: white; text-align: center;">
-                                Pantalla
+                    <div class="d-flex flex-column align-items-center" style="width: 100%;">
+                        <div class="row w-100">
+                            <div class="col-md-12">
+                                <div class="text-center"
+                                    style="background-color: black; color: white; width: 100%; user-select: none; border-radius: 10px;">
+                                    Pantalla
+                                </div>
                             </div>
                         </div>
-                        <div class="col-md-12" style="margin-top: 20px;">
-                            <div style="background-color: black; color: white; width: 5%; user-select: none; text-align: center;">
-                                <span>A1</span>
-                            </div>
+
+                        <div class="row w-100 mt-4" id="asientos">
+                            <!--Aqui carga dinamicamente los botones para seleccionar el horario-->
+                            <span style="color: rgb(119, 119, 119);">Seleccione una sala y un horario</span>
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 </div>
