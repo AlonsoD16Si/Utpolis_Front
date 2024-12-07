@@ -53,12 +53,17 @@ Fecha: 14-11-2024
                             </li>
                             <li class="nav-item active navbar_utpolis_font_li">
                                 <a class="navbar_utpolis_font_links" href="#"
-                                    onclick="ventanaInventario()">Inventario</a>
+                                    onclick="ventanaInventario()">Inventario Dulcer&iacute;a</a>
                             </li>
                             <li class="nav-item active navbar_utpolis_font_li">
                                 <a class="navbar_utpolis_font_links" href="#"
                                     onclick="ventanaProveedores()">Proveedores</a>
                             </li>
+                            <li class="nav-item active navbar_utpolis_font_li">
+                                <a class="navbar_utpolis_font_links" href="#"
+                                    onclick="ventanaVentas()">Ventas</a>
+                            </li>
+                            
                             <li class="nav-item active navbar_utpolis_font_li">
                                 <a class="navbar_utpolis_font_links" onclick="ventanaBoleto()"
                                     style="cursor: pointer;">Boletos</a>
@@ -192,19 +197,31 @@ Fecha: 14-11-2024
                 });
         }
 
-        // function ventanaInventario() {
-        //     fetch('modulosCine/inventario_dulceria/inventario_dulceria.html')
-        //         .then(response => response.text())
-        //         .then(data => {
-        //             document.getElementById("default").innerHTML = data;
-        //             const script = document.createElement('script');
-        //             script.src = 'modulosCine/inventario_dulceria/scriptinventario.js';
-        //             script.onload = () => {
-        //                 cargarModuloInventario();
-        //             };
-        //             document.body.appendChild(script);
-        //         });
-        // }
+         function ventanaInventario() {
+             fetch('modulosCine/inventario_dulceria/inventario_dulceria.html')
+                 .then(response => response.text())
+                 .then(data => {
+                     document.getElementById("default").innerHTML = data;
+                     const script = document.createElement('script');
+                     script.src = 'modulosCine/inventario_dulceria/inventario_dulceria.js';
+                     script.onload = () => {
+                         cargarModuloInventario();
+                     };
+                     document.body.appendChild(script);
+                 });
+         }
+         function ventanaVentas() {
+             fetch('modulosCine/venta/venta.html')  
+                 .then(response => response.text())
+                 .then(data => {
+                     document.getElementById("default").innerHTML = data;
+                     const script = document.createElement('script');
+                     script.src = 'modulosCine/venta/venta.js';
+                     script.onload = () => {
+                     };
+                     document.body.appendChild(script);
+                 });
+         }
 
         function ventanaLogin() {
             window.location.href = 'modulos/usuario.html';

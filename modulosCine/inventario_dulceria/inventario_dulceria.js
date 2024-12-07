@@ -1,91 +1,55 @@
 $(document).ready(function () {
+    // Obtener productos al cargar la página
     fetchProductos();
 
-    // Botón para sumar cantidad
-    $('#sumarInventarioButton').on('click', function () {
-        const data = {
-            producto_id: parseInt($('#productId').val()),
-            cantidad: parseInt($('#productQuantity').val())
-        };
+    // Actualizar inventario
+    $('#updateInventoryButton').on('click', function () {
+        const productId = parseInt($('#productId').val());
+        const quantity = parseInt($('#quantity').val());
+        const operation = $('#operation').val();
 
-        if (isNaN(data.producto_id) || isNaN(data.cantidad)) {
+        if (!productId || !quantity || !operation) {
             Swal.fire({
-                title: '¡Error!',
-                text: 'Por favor, completa todos los campos.',
+                title: 'Error',
+                text: 'Completa todos los campos antes de continuar.',
                 icon: 'error',
-                confirmButtonText: 'Cerrar'
             });
             return;
         }
 
+        const url =
+            operation === 'sumar'
+                ? 'https://inventarioapi.vercel.app/api/sumarInventario'
+                : 'https://inventarioapi.vercel.app/api/restarInventario';
+
         $.ajax({
-            url: 'https://inventarioapi.vercel.app/api/sumarInventario',
+            url: url,
             method: 'POST',
             contentType: 'application/json',
-            data: JSON.stringify(data),
+            data: JSON.stringify({
+                producto_id: productId,
+                cantidad: quantity,
+            }),
             success: function () {
                 fetchProductos();
                 Swal.fire({
-                    title: '¡Éxito!',
-                    text: 'Cantidad sumada al inventario.',
+                    title: 'Éxito',
+                    text: `Se ha ${operation === 'sumar' ? 'sumado' : 'restado'} correctamente.`,
                     icon: 'success',
-                    confirmButtonText: 'OK'
                 });
             },
-            error: function (error) {
-                console.error('Error:', error);
+            error: function () {
                 Swal.fire({
-                    title: '¡Error!',
-                    text: 'Error al sumar cantidad.',
+                    title: 'Error',
+                    text: 'Ocurrió un problema al actualizar el inventario.',
                     icon: 'error',
-                    confirmButtonText: 'Inténtalo nuevamente'
                 });
-            }
+            },
         });
     });
 
-    // Botón para restar cantidad
-    $('#restarInventarioButton').on('click', function () {
-        const data = {
-            producto_id: parseInt($('#productId').val()),
-            cantidad: parseInt($('#productQuantity').val())
-        };
-
-        if (isNaN(data.producto_id) || isNaN(data.cantidad)) {
-            Swal.fire({
-                title: '¡Error!',
-                text: 'Por favor, completa todos los campos.',
-                icon: 'error',
-                confirmButtonText: 'Cerrar'
-            });
-            return;
-        }
-
-        $.ajax({
-            url: 'https://inventarioapi.vercel.app/api/restarInventario',
-            method: 'POST',
-            contentType: 'application/json',
-            data: JSON.stringify(data),
-            success: function () {
-                fetchProductos();
-                Swal.fire({
-                    title: '¡Éxito!',
-                    text: 'Cantidad restada del inventario.',
-                    icon: 'success',
-                    confirmButtonText: 'OK'
-                });
-            },
-            error: function (error) {
-                console.error('Error:', error);
-                Swal.fire({
-                    title: '¡Error!',
-                    text: 'Error al restar cantidad.',
-                    icon: 'error',
-                    confirmButtonText: 'Inténtalo nuevamente'
-                });
-            }
-        });
-    });
+    // Recargar productos
+    $('#reloadButton').on('click', fetchProductos);
 });
 
 // Obtener todos los productos
@@ -95,24 +59,31 @@ function fetchProductos() {
         url: 'https://inventarioapi.vercel.app/api/inventario',
         method: 'GET',
         success: function (response) {
-            $('#loadingIndicator').hide();
             const productos = response || [];
-            let html = '';
+            let productsHtml = '';
 
-            productos.forEach(producto => {
-                html += `
+            productos.forEach((producto) => {
+                productsHtml += `
                     <tr>
                         <td>${producto.producto_id}</td>
-                        <td>${producto.nombre}</td>
+                        <td>${producto.nombre_producto || 'Sin nombre'}</td>
                         <td>${producto.existencia}</td>
+                        <td>${new Date(producto.fecha).toLocaleDateString('es-MX')}</td>
+                        <td>${producto.tipo_movimiento || 'N/A'}</td>
+                        <td>${producto.proveedor_id || 'N/A'}</td>
                     </tr>`;
             });
 
-            $('#productos-table-body').html(html);
-        },
-        error: function (error) {
+            $('#productos-table-body').html(productsHtml);
             $('#loadingIndicator').hide();
-            console.error('Error al cargar productos:', error);
-        }
+        },
+        error: function () {
+            $('#loadingIndicator').hide();
+            Swal.fire({
+                title: 'Error',
+                text: 'No se pudo cargar el inventario.',
+                icon: 'error',
+            });
+        },
     });
 }

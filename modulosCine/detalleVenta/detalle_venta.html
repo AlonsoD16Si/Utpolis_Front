@@ -1,0 +1,75 @@
+<div class="container detalles-venta">
+    <div class="row">
+        <!-- Formulario para Registrar Detalle de Venta -->
+        <div class="col-md-5">
+            <div class="formulario-container shadow rounded-4">
+                <div class="header-bar d-flex justify-content-center align-items-center text-white px-3 py-2">
+                    <div>Registrar Detalle de Venta</div>
+                </div>
+                <div class="p-4">
+                    <form id="detalleVenta-form">
+                        <div class="mb-3">
+                            <label for="ventaId" class="form-label">ID de Venta</label>
+                            <input type="number" class="form-control" id="ventaId" placeholder="Ej. 1" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="productoId" class="form-label">ID del Producto</label>
+                            <input type="number" class="form-control" id="productoId" placeholder="Ej. 5" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="funcionId" class="form-label">ID de la Función</label>
+                            <input type="number" class="form-control" id="funcionId" placeholder="Ej. 9" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="asientos" class="form-label">Asientos (IDs separados por coma)</label>
+                            <input type="text" class="form-control" id="asientos" placeholder="Ej. 3,4" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="cantidad" class="form-label">Cantidad</label>
+                            <input type="number" class="form-control" id="cantidad" placeholder="Ej. 2" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="subtotalDetalle" class="form-label">Subtotal</label>
+                            <input type="number" class="form-control" id="subtotalDetalle" placeholder="Ej. 150.50" required>
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <button type="button" class="btn btn-style w-100" id="registrarDetalleVentaButton">
+                                <i class="mdi mdi-content-save"></i> Registrar Detalle
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tabla de Detalles de Ventas -->
+        <div class="col-md-7">
+            <div class="header-bar d-flex justify-content-between align-items-center text-white px-3 py-2">
+                <h2 class="m-0">Detalles de Venta</h2>
+                <button id="reloadButtonDetalles" class="btn btn-outline-primary">
+                    <i class="mdi mdi-refresh"></i> Recargar
+                </button>
+            </div>
+            <div id="loadingIndicatorDetalles" class="text-center mt-3" style="display: none;">
+                <i class="mdi mdi-loading mdi-spin" style="font-size: 24px;"></i> Cargando...
+            </div>
+            <div class="table-responsive mt-3">
+                <table class="table text-center align-middle table-hover rounded-4">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Venta</th>
+                            <th>Producto</th>
+                            <th>Función</th>
+                            <th>Asientos</th>
+                            <th>Cantidad</th>
+                            <th>Subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody id="detalle-venta-table-body">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

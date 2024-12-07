@@ -1,42 +1,64 @@
-<div class="container">
+<div class="container  inventario_dulceria">
     <div class="row">
-        <!-- Formulario para sumar/restar cantidad -->
-        <div class="col-md-6">
+        <!-- Formulario -->
+        <div class="col-md-5">
             <div class="formulario-container shadow rounded-4">
-                <h3 class="text-center">Actualizar Inventario</h3>
-                <form id="update-inventory-form">
-                    <div class="mb-3">
-                        <label for="productId" class="form-label">ID del Producto</label>
-                        <input type="number" class="form-control" id="productId" placeholder="Ej. 1" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="productQuantity" class="form-label">Cantidad</label>
-                        <input type="number" class="form-control" id="productQuantity" placeholder="Ej. 10" required>
-                    </div>
-                    <div class="d-flex gap-2">
-                        <button type="button" class="btn btn-success w-50" id="sumarInventarioButton">Sumar</button>
-                        <button type="button" class="btn btn-danger w-50" id="restarInventarioButton">Restar</button>
-                    </div>
-                </form>
+                <div class="header-bar d-flex justify-content-center align-items-center text-white px-3 py-2">
+                    <div>Actualizar Inventario</div>
+                </div>
+                <div class="p-4">
+                    <form id="inventory-form">
+                        <div class="mb-3">
+                            <label for="productId" class="form-label">ID del Producto</label>
+                            <input type="number" class="form-control" id="productId" placeholder="Ej. 1" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="quantity" class="form-label">Cantidad</label>
+                            <input type="number" class="form-control" id="quantity" placeholder="Ej. 10" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="operation" class="form-label">Operación</label>
+                            <select class="form-select" id="operation" required>
+                                <option value="" disabled selected>Seleccionar Operación</option>
+                                <option value="sumar">Sumar al Inventario</option>
+                                <option value="restar">Restar del Inventario</option>
+                            </select>
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <button type="button" class="btn btn-style w-100" id="updateInventoryButton">
+                                <i class="mdi mdi-content-save"></i> Actualizar Inventario
+                            </button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
 
-        <!-- Tabla de productos -->
-        <div class="col-md-6">
-            <h3 class="text-center">Productos</h3>
-            <div id="loadingIndicator" class="text-center" style="display: none;">
+        <!-- Tabla -->
+        <div class="col-md-7">
+            <div class="header-bar d-flex justify-content-between align-items-center text-white px-3 py-2">
+                <h2 class="m-0">Productos en Inventario</h2>
+                <button id="reloadButton" class="btn btn-outline-primary">
+                    <i class="mdi mdi-refresh"></i> Recargar
+                </button>
+            </div>
+            <div id="loadingIndicator" class="text-center mt-3" style="display: none;">
                 <i class="mdi mdi-loading mdi-spin" style="font-size: 24px;"></i> Cargando...
             </div>
-            <div class="table-responsive">
+            <div class="table-responsive mt-3">
                 <table class="table text-center align-middle table-hover rounded-4">
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Nombre</th>
+                            <th>Nombre del Producto</th>
                             <th>Existencia</th>
+                            <th>Fecha</th>
+                            <th>Tipo de Movimiento</th>
+                            <th>Proveedor</th>
                         </tr>
                     </thead>
-                    <tbody id="productos-table-body"></tbody>
+                    <tbody id="productos-table-body">
+                    </tbody>
                 </table>
             </div>
         </div>
