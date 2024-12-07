@@ -83,3 +83,38 @@
     margin-right: 5px;
     cursor: pointer;
 }
+
+.asientos_bloquear {
+    background-color: rgb(178, 178, 178);
+    color: rgb(132, 132, 132);
+    user-select: none;
+    text-align: center;
+    width: 50px;
+    height: 50px;
+    align-content: center;
+    border-radius: 10px;
+    text-decoration: none;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.pelicula {
+    background-color: rgb(22, 0, 134);
+    color: white;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.duracion {
+    background-color: rgb(38, 0, 230);
+    color: white;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.descuento {
+    background-color: #004bce;
+    color: white;
+    border-radius: 10px;
+    padding: 5px;
+}

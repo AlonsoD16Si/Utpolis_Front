@@ -56,6 +56,7 @@
                 </div>
             </div>
             <!-- SELECCION DE SALA -->
+            <!--
             <div class="card" style="margin-top: 10px;">
                 <div class="card-body">
                     <div class="row">
@@ -63,11 +64,12 @@
                             <h4>Selecciona la sala disponible</h4>
                         </div>
                         <div class="col-md-12" id="salas">
-                            <!--Aqui carga dinamicamente los botones para seleccionar la sala-->
+                            
                         </div>
                     </div>
                 </div>
             </div>
+            -->
 
             <!-- SELECCION DE HORARIO -->
             <div class="card" style="margin-top: 10px;">
@@ -78,7 +80,6 @@
                         </div>
                         <div class="col-md-12" id="horarios">
                             <!--Aqui carga dinamicamente los botones para seleccionar el horario-->
-                            <span style="color: rgb(119, 119, 119);">Seleccione una sala</span>
                         </div>
                     </div>
                 </div>
@@ -112,8 +113,69 @@
                     </div>
                 </div>
             </div>
+            <div class="card" style="margin-top: 10px;">
+                <div class="card-body">
+                    <div class="form-control">
+                        <h4>Escriba codigo de descuento:</h4>
+                        <input class="form-control" type="text" id="descuento_texto" />
+                        <div id="descuento_valido" style="display: none; margin-top: 10px;">
+                            <h6 id="nombre_descuento" class="descuento"></h6>
+                            <span id="condicion_descuento" class="descuento"></span>
+                            <span id="descripcion_descuento" class="descuento"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card" style="margin-top: 10px;">
+                <div class="card-body">
+                    <h4>Total a pagar</h4>
+                    <span id="total_pagar" style="font-size: 30px;">$ 0.00</span>
+                </div>
+            </div>
 
+            <button class="btn btn-primary" style="width: 100%; margin-top: 10px;" id="btn_comprar"
+                data-bs-toggle="modal" data-bs-target="#completarCompraModal">Completar</button>
+                <label id="error_compra" style="color: red;">
+                </label>
         </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="completarCompraModal" tabindex="-1" aria-labelledby="modalTitle" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalTitle">Completar Compra</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        ¿Estás seguro de que deseas completar la compra?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-primary" onclick="aplicarDescuento()">Completar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal finalizar compra -->
+        <div class="modal fade" id="finalizarCompraModal" tabindex="-1" aria-labelledby="finalizarCompraTitle" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="finalizarCompraTitle">Compra finalizada</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Revisa tu correo electrónico para obtener el código de tus boletos.
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
     </div>
 </div>
 </div>
