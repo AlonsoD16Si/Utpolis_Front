@@ -1,0 +1,161 @@
+<div class="container utpolis-dulceria">
+    <div class="row">
+        <!-- Formulario de creación de producto -->
+        <div class="col-md-5">
+            <div class="formulario-container shadow rounded-4">
+                <div class="header-bar d-flex justify-content-center align-items-center text-white px-3 py-2">
+                    <div class="d-flex align-items-center">Agregar Producto</div>
+                </div>
+                <div class="p-4">
+                    <form id="create-product-form">
+                        <div class="mb-3">
+                            <label for="productName" class="form-label">Nombre del Producto</label>
+                            <input type="text" class="form-control" id="productName" placeholder="Ej. Palomitas"
+                                required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="productPrice" class="form-label">Precio</label>
+                            <input type="number" class="form-control" id="productPrice" placeholder="Ej. 50.00"
+                                required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="productCategory" class="form-label">Categoría</label>
+                            <select class="form-select" id="productCategory" required>
+                                <option value="" disabled selected>Seleccionar Categoría</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="productDescription" class="form-label">Descripción</label>
+                            <textarea class="form-control" id="productDescription" rows="3"
+                                placeholder="Ej. Palomitas de maíz con mantequilla"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="productExistence" class="form-label">Existencia</label>
+                            <input type="number" class="form-control" id="productExistence" placeholder="Ej. 100"
+                                required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="productSize" class="form-label">Tamaño</label>
+                            <input type="text" class="form-control" id="productSize" placeholder="Ej. Grande">
+                        </div>
+                        <div class="mb-3">
+                            <label for="productUnit" class="form-label">Unidad</label>
+                            <select class="form-select" id="productUnit">
+                                <option value="pieza">Pieza</option>
+                                <option value="paquete">Paquete</option>
+                                <option value="litro">Litro</option>
+                                <option value="" disabled selected>Seleccionar unidad</option>
+
+                            </select>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="checkbox" id="productStatus" checked>
+                            <label class="form-check-label" for="productStatus">Producto Activo</label>
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <button type="button" class="btn btn-style w-100" id="saveProductButton">
+                                <i class="mdi mdi-content-save"></i> Guardar Producto
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="editProductModal" tabindex="-1" aria-labelledby="editProductModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="editProductModalLabel">Editar Producto</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <input type="hidden" id="editProductId">
+                            <div class="mb-3">
+                                <label for="editProductName" class="form-label">Nombre del Producto</label>
+                                <input type="text" class="form-control" id="editProductName" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="editProductPrice" class="form-label">Precio</label>
+                                <input type="number" class="form-control" id="editProductPrice" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="editProductExistence" class="form-label">Existencia</label>
+                                <input type="number" class="form-control" id="editProductExistence" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="editProductSize" class="form-label">Tamaño</label>
+                                <input type="text" class="form-control" id="editProductSize">
+                            </div>
+                            <div class="mb-3">
+                                <label for="editProductUnit" class="form-label">Unidad</label>
+                                <select class="form-select" id="editProductUnit">
+                                    <option value="pieza">Pieza</option>
+                                    <option value="paquete">Paquete</option>
+                                    <option value="litro">Litro</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="editProductCategory" class="form-label">Categoría</label>
+                                <select class="form-select" id="editProductCategory"></select>
+                            </div>
+                            <div class="d-flex justify-content-center gap-2">
+                                <div class="form-check mb-3">
+                                    <input class="form-check-input" type="checkbox" id="editProductStatus"
+                                        onchange="toggleCheckbox('editProductStatus', 'editDeactivateProduct')">
+                                    <label class="form-check-label" for="editProductStatus">Producto Activo</label>
+                                </div>
+                                <div class="form-check mb-3">
+                                    <input class="form-check-input" type="checkbox" id="editDeactivateProduct"
+                                        onchange="toggleCheckbox('editDeactivateProduct', 'editProductStatus')">
+                                    <label class="form-check-label" for="editDeactivateProduct">Desactivar
+                                        Producto</label>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-primary" onclick="saveProductEdit()">Guardar
+                            Cambios</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tabla de productos -->
+        <div class="col-md-7">
+            <div class="header-bar d-flex justify-content-between align-items-center text-white px-3 py-2">
+                <h2 class="m-0">Productos Registrados</h2>
+                <button id="reloadButton" class="btn btn-outline-primary">
+                    <i class="mdi mdi-refresh"></i> Recargar
+                </button>
+            </div>
+            <div id="loadingIndicator" class="text-center mt-3" style="display: none;">
+                <i class="mdi mdi-loading mdi-spin" style="font-size: 24px;"></i> Cargando...
+            </div>
+            <div class="table-responsive mt-3">
+                <table class="table text-center align-middle table-hover rounded-4">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Precio</th>
+                            <th>Existencia</th>
+                            <th>Categoría</th>
+                            <th>Tamaño</th>
+                            <th>Unidad</th>
+                            <th>Estatus</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="productos-table-body">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

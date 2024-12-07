@@ -1,0 +1,104 @@
+<div class="container utpolis-dulceria">
+    <div class="row">
+        <!-- Formulario para agregar proveedor -->
+        <div class="col-md-5">
+            <div class="formulario-container shadow rounded-4">
+                <div class="header-bar d-flex justify-content-center align-items-center text-white px-3 py-2">
+                    <div class="d-flex align-items-center">Agregar Proveedor</div>
+                </div>
+                <div class="p-4">
+                    <form id="create-provider-form">
+                        <div class="mb-3">
+                            <label for="providerName" class="form-label">Nombre del Proveedor</label>
+                            <input type="text" class="form-control" id="providerName" placeholder="Ej. Hershey's"
+                                required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="providerEmail" class="form-label">Correo</label>
+                            <input type="email" class="form-control" id="providerEmail"
+                                placeholder="Ej. contacto@hersheys.com" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="providerPhone" class="form-label">Teléfono</label>
+                            <input type="text" class="form-control" id="providerPhone" placeholder="Ej. 5555558888"
+                                required>
+                        </div>
+
+                        <button type="button" class="btn btn-style w-100" id="saveProviderButton">
+                            <i class="mdi mdi-content-save"></i> Guardar Proveedor
+                        </button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="editProveedorModal" tabindex="-1" aria-labelledby="editProveedorModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="editProveedorModalLabel">Editar Proveedor</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <!-- Modal Body -->
+                    <div class="modal-body">
+                        <form id="edit-provider-form">
+                            <input type="hidden" id="editProveedorId">
+                            <div class="mb-3">
+                                <label for="editProveedorName" class="form-label">Nombre del Proveedor</label>
+                                <input type="text" class="form-control" id="editProveedorName"
+                                    placeholder="Ej. Hershey's" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="editProveedorEmail" class="form-label">Correo</label>
+                                <input type="email" class="form-control" id="editProveedorEmail"
+                                    placeholder="Ej. contacto@hersheys.com" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="editProveedorPhone" class="form-label">Teléfono</label>
+                                <input type="text" class="form-control" id="editProveedorPhone"
+                                    placeholder="Ej. 5555558888" required>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- Modal Footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-primary" onclick="saveProveedorEdit()">Guardar
+                            Cambios</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tabla de proveedores -->
+        <div class="col-md-7">
+            <div class="header-bar d-flex justify-content-between align-items-center text-white px-3 py-2">
+                <h2 class="m-0">Proveedores Registrados</h2>
+                <button id="reloadButton" class="btn btn-outline-primary">
+                    <i class="mdi mdi-refresh"></i> Recargar
+                </button>
+            </div>
+            <div id="loadingIndicator" class="text-center mt-3" style="display: none;">
+                <i class="mdi mdi-loading mdi-spin" style="font-size: 24px;"></i> Cargando...
+            </div>
+            <div class="table-responsive mt-3">
+                <table class="table text-center align-middle table-hover rounded-4">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Correo</th>
+                            <th>Teléfono</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="providers-table-body">
+                        <!-- Filas dinámicas -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

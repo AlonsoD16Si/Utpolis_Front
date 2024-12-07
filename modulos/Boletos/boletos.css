@@ -4,16 +4,117 @@
 
 .imagen-boleto {
     width: 200px;
-    height: 300px; 
+    height: 300px;
 }
 
 .descripcion-pelicula {
-    overflow: hidden; 
-    text-overflow: ellipsis; 
+    overflow: hidden;
+    text-overflow: ellipsis;
     white-space: normal;
 }
 
 .boton_seleccionado {
-    background-color: #031e4d; 
+    background-color: #031e4d;
     color: white;
+}
+
+.asiento_disponible {
+    background-color: rgb(178, 178, 178);
+    color: black;
+    user-select: none;
+    text-align: center;
+    width: 50px;
+    height: 50px;
+    align-content: center;
+    border-radius: 10px;
+    text-decoration: none;
+    margin-left: 5px;
+    margin-right: 5px;
+    transition: ease-in 0.1s;
+    cursor: pointer;
+}
+
+.asiento_disponible:hover {
+    background-color: #004bce;
+    color: white;
+}
+
+.asiento_ocupado {
+    background-color: rgb(0, 0, 0);
+    color: white;
+    user-select: none;
+    text-align: center;
+    width: 50px;
+    height: 50px;
+    align-content: center;
+    border-radius: 10px;
+    text-decoration: none;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.asiento_seleccionado {
+    background-color: #031e4d;
+    color: white;
+    user-select: none;
+    text-align: center;
+    width: 50px;
+    height: 50px;
+    align-content: center;
+    border-radius: 10px;
+    text-decoration: none;
+    margin-left: 5px;
+    margin-right: 5px;
+    transition: ease-in 0.1s;
+    cursor: pointer;
+}
+
+.asiento_seleccionado:hover {
+    background-color: red;
+    color: white;
+    user-select: none;
+    text-align: center;
+    width: 50px;
+    height: 50px;
+    align-content: center;
+    border-radius: 10px;
+    text-decoration: none;
+    margin-left: 5px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.asientos_bloquear {
+    background-color: rgb(178, 178, 178);
+    color: rgb(132, 132, 132);
+    user-select: none;
+    text-align: center;
+    width: 50px;
+    height: 50px;
+    align-content: center;
+    border-radius: 10px;
+    text-decoration: none;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.pelicula {
+    background-color: rgb(22, 0, 134);
+    color: white;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.duracion {
+    background-color: rgb(38, 0, 230);
+    color: white;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.descuento {
+    background-color: #004bce;
+    color: white;
+    border-radius: 10px;
+    padding: 5px;
 }

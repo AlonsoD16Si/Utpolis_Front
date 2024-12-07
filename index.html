@@ -13,7 +13,10 @@ Fecha: 14-11-2024
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="node_modules/@mdi/font/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="modulosCine/dulceria/estilosdulceria.css">
     <link rel="stylesheet" href="modulos/Boletos/boletos.css">
+    <link rel="stylesheet" href="modulosCine/inventario_dulceria/inventario_dulceria.css">
+    <link rel="stylesheet" href="modulosCine/promociones/estilospromociones.css">
     <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
         rel="stylesheet">
 
@@ -34,25 +37,42 @@ Fecha: 14-11-2024
                     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                         <ul class="navbar-nav" id="nav_links">
                             <li class="nav-item active navbar_utpolis_font_li">
-                                <a class="navbar_utpolis_font_links" href="#">Inicio</a>
+                                <a class="navbar_utpolis_font_links" onclick="ventanaInicio()"
+                                    style="cursor: pointer;">Inicio</a>
                             </li>
                             <li class="nav-item active navbar_utpolis_font_li">
                                 <a class="navbar_utpolis_font_links" href="#">Cartelera</a>
                             </li>
                             <li class="nav-item active navbar_utpolis_font_li">
-                                <a class="navbar_utpolis_font_links" href="#">Dulcer&iacute;a</a>
+                                <a class="navbar_utpolis_font_links" href="#"
+                                    onclick="ventanaDulceria()">Dulcer&iacute;a</a>
                             </li>
                             <li class="nav-item active navbar_utpolis_font_li">
+
                                 <a class="navbar_utpolis_font_links" href="">Promociones</a>
                             </li>
                             <li class="nav-item active navbar_utpolis_font_li">
                                 <a class="navbar_utpolis_font_links" href="modulos/cupones.html">Gestion de cupones</a>
+
+                                <a class="navbar_utpolis_font_links" href="#"
+                                    onclick="ventanaPromociones()">Promociones</a>
+
                             </li>
                             <li class="nav-item active navbar_utpolis_font_li">
-                                <a class="navbar_utpolis_font_links" onclick="ventanaBoleto()">Boletos</a>
+                                <a class="navbar_utpolis_font_links" href="#"
+                                    onclick="ventanaInventario()">Inventario</a>
+                            </li>
+                            <li class="nav-item active navbar_utpolis_font_li">
+                                <a class="navbar_utpolis_font_links" href="#"
+                                    onclick="ventanaProveedores()">Proveedores</a>
+                            </li>
+                            <li class="nav-item active navbar_utpolis_font_li">
+                                <a class="navbar_utpolis_font_links" onclick="ventanaBoleto()"
+                                    style="cursor: pointer;">Boletos</a>
                             </li>
                             <li class="nav-item active" style="margin-right: 20px;" id="boton_in">
-                                <a style="text-decoration: none; cursor:pointer;" onclick="ventanaLogin()">
+                                <a style="text-decoration: none; cursor:pointer;" onclick="ventanaLogin()"
+                                    style="cursor: pointer;">
                                     <div class="card navbar_utpolis_inicio_sesion">
                                         <span style="color: white; user-select: none;"><span
                                                 class="mdi mdi-account"></span> Iniciar sesi&oacute;n</span>
@@ -79,10 +99,13 @@ Fecha: 14-11-2024
     </div>
 
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <!-- <script src="modulosCine/dulceria/scriptdulceria.js"></script> -->
     <script src="modulos/Boletos/boletos.js"></script>
+
 
     <script>
         window.addEventListener("scroll", function () {
@@ -115,22 +138,85 @@ Fecha: 14-11-2024
                 document.getElementById("default").innerHTML = data;
             });
 
+        function ventanaInicio() {
+            fetch('modulos/pantalla_principal.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("default").innerHTML = data;
+                });
+        }
+
         //▶ Carga la ventana de boletos
         function ventanaBoleto() {
             fetch('modulos/Boletos/boletos.html')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById("default").innerHTML = data;
-                    cargarPeliculas();
-                    cargarSalas();
-                    cambiarPeliculaSeleccionada();
+                    cargarBoletosInicio();
                 });
         }
+
+        function ventanaDulceria() {
+            fetch('modulosCine/dulceria/indexdulceria.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("default").innerHTML = data;
+
+                    const script = document.createElement('script');
+                    script.src = 'modulosCine/dulceria/scriptdulceria.js';
+                    script.onload = () => {
+                        cargarModuloDulceria();
+                    };
+                    document.body.appendChild(script);
+                });
+        }
+        function ventanaPromociones() {
+            fetch('modulosCine/promociones/indexpromociones.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("default").innerHTML = data;
+
+                    const script = document.createElement('script');
+                    script.src = 'modulosCine/promociones/scriptpromociones.js';
+                    script.onload = () => {
+                        cargarModuloPromociones();
+                    };
+                    document.body.appendChild(script);
+                });
+        }
+
+        function ventanaProveedores() {
+            fetch('modulosCine/proveedores/proveedores.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("default").innerHTML = data;
+                    const script = document.createElement('script');
+                    script.src = 'modulosCine/proveedores/scriptproveedores.js';
+                    script.onload = () => {
+                        cargarModuloProveedores();
+                    };
+                    document.body.appendChild(script);
+                });
+        }
+
+        // function ventanaInventario() {
+        //     fetch('modulosCine/inventario_dulceria/inventario_dulceria.html')
+        //         .then(response => response.text())
+        //         .then(data => {
+        //             document.getElementById("default").innerHTML = data;
+        //             const script = document.createElement('script');
+        //             script.src = 'modulosCine/inventario_dulceria/scriptinventario.js';
+        //             script.onload = () => {
+        //                 cargarModuloInventario();
+        //             };
+        //             document.body.appendChild(script);
+        //         });
+        // }
 
         function ventanaLogin() {
             window.location.href = 'modulos/usuario.html';
         }
-
+      
         //▶ Carga al usuario de inicio
         document.addEventListener("DOMContentLoaded", () => {
             const boton_inicio_sesion = document.getElementById('boton_in');
